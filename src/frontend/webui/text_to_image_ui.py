@@ -152,7 +152,7 @@ def get_text_to_image_ui(app_settings: AppSettings) -> None:
 
                     safety_checker_checkbox = gr.Checkbox(
                         label="Use Safety Checker",
-                        value=True,
+                        value=False,
                         interactive=True,
                     )
                     tiny_auto_encoder_checkbox = gr.Checkbox(
