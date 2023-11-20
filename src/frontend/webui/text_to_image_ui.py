@@ -39,10 +39,7 @@ def generate_text_to_image(
 
     use_seed = True if seed != -1 else False
 
-    lcm_lora = LCMLora(
-        base_model_id="Lykon/dreamshaper-8",
-        lcm_lora_id="latent-consistency/lcm-lora-sdv1-5"
-    )
+    lcm_lora = Context.lcm_lora
     lcm_diffusion_settings = LCMDiffusionSetting(
         lcm_model_id=model_id,
         prompt=prompt,
@@ -56,7 +53,7 @@ def generate_text_to_image(
         use_safety_checker=use_safety_checker,
         use_seed=use_seed,
         use_tiny_auto_encoder=tiny_auto_encoder_checkbox,
-        use_lcm_lora=True,
+        use_lcm_lora=Context.use_lcm_lora,
         lcm_lora=lcm_lora
     )
     settings = Settings(
