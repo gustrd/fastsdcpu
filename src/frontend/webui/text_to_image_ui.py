@@ -1,7 +1,7 @@
 from typing import Any
 import gradio as gr
 
-from backend.models.lcmdiffusion_setting import LCMDiffusionSetting
+from backend.models.lcmdiffusion_setting import LCMDiffusionSetting, LCMLora
 from context import Context
 from models.interface_types import InterfaceType
 from app_settings import Settings
@@ -39,6 +39,10 @@ def generate_text_to_image(
 
     use_seed = True if seed != -1 else False
 
+    lcm_lora = LCMLora(
+        base_model_id="Lykon/dreamshaper-8",
+        lcm_lora_id="latent-consistency/lcm-lora-sdv1-5"
+    )
     lcm_diffusion_settings = LCMDiffusionSetting(
         lcm_model_id=model_id,
         prompt=prompt,
@@ -53,8 +57,7 @@ def generate_text_to_image(
         use_seed=use_seed,
         use_tiny_auto_encoder=tiny_auto_encoder_checkbox,
         use_lcm_lora=True,
-        lcm_lora.base_model_id="Lykon/dreamshaper-8",
-        lcm_lora.lcm_lora_id="latent-consistency/lcm-lora-sdv1-5"
+        lcm_lora=lcm_lora
     )
     settings = Settings(
         lcm_diffusion_setting=lcm_diffusion_settings,
