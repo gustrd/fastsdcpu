@@ -7,6 +7,8 @@ from time import perf_counter
 from backend.image_saver import ImageSaver
 from pprint import pprint
 
+use_lcm_lora=False
+lcm_lora=LCMLora()
 
 class Context:
     def __init__(
@@ -16,9 +18,6 @@ class Context:
     ):
         self.interface_type = interface_type
         self.lcm_text_to_image = LCMTextToImage(device)
-
-        self.use_lcm_lora=False
-        self.lcm_lora=LCMLora()
 
     def generate_text_to_image(
         self,
