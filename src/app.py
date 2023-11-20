@@ -161,9 +161,9 @@ if args.gui:
         app_settings,
     )
 elif args.webui:
-    context.use_lcm_lora=args.use_lcm_lora
-    context.lcm_lora.base_model_id = args.base_model_id
-    context.lcm_lora.lcm_lora_id = args.lcm_lora_id
+    Context.use_lcm_lora=args.use_lcm_lora
+    Context.lcm_lora.base_model_id = args.base_model_id
+    Context.lcm_lora.lcm_lora_id = args.lcm_lora_id
 
     from frontend.webui.ui import start_webui
 
