@@ -7,10 +7,10 @@ from time import perf_counter
 from backend.image_saver import ImageSaver
 from pprint import pprint
 
-use_lcm_lora=False
-lcm_lora=LCMLora()
-
 class Context:
+    use_lcm_lora=False
+    lcm_lora=LCMLora()
+    
     def __init__(
         self,
         interface_type: InterfaceType,
