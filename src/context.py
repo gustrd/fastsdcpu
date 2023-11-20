@@ -1,5 +1,6 @@
 from typing import Any
 from app_settings import Settings
+from backend.models.lcmdiffusion_setting import LCMLora
 from models.interface_types import InterfaceType
 from backend.lcm_text_to_image import LCMTextToImage
 from time import perf_counter
@@ -15,6 +16,9 @@ class Context:
     ):
         self.interface_type = interface_type
         self.lcm_text_to_image = LCMTextToImage(device)
+
+        self.use_lcm_lora=False
+        self.lcm_lora=LCMLora()
 
     def generate_text_to_image(
         self,
